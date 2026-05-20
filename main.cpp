@@ -1,44 +1,61 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <windows.h>
 
 using namespace std;
-int main()
-{
 
-//entrada de dados
-string nomes[20];
-int qtdAlunos;
+int main() {
+    SetConsoleOutputCP(65001);
 
+    string nomes[20];
+    int qntdAlunos;
+    float notas[20][5];
+    float media[20];
+    int qntdDisciplinas;
 
-//processamento de dados
+    cout << "=== SISTEMA DE NOTAS v4.0 ===" << endl;
 
-cout << "=== SISTEMA DE NTOAS V4.9 ===" << endl;
+    do {
+        cout << "Quantidade de alunos (1 a 20): ";
+        cin >> qntdAlunos;
+    } while (qntdAlunos < 1 || qntdAlunos > 20);
 
-do
-{
-    cout << "Quantidade de alunos (1 a 20): ";
-    cin >> qtdAlunos;
+    cin.ignore();
 
-} while (qtdAlunos < 1 || qtdAlunos > 20);
+    for (int i = 0; i < qntdAlunos; i++) {
+        cout << "Nome do aluno " << i + 1 << ": ";
+        getline(cin, nomes[i]);
+    }
 
-cin.ignore(); // Limpa o buffer de entrada
-for (int i = 0; i < qtdAlunos; i++)
-{
-    cout << "Nome do aluno " << i + 1 << ": ";
-    getline (cin, nomes[i]);
+    do {
+        cout << "Quantidade de disciplinas (1 a 5): ";
+        cin >> qntdDisciplinas;
+    } while (qntdDisciplinas < 1 || qntdDisciplinas > 5);
 
-}
+    
+    cin.ignore(); 
 
+    for (int i = 0; i < qntdAlunos; i++) {
+        cout << "\nNotas do aluno: " << nomes[i] << endl;
+        float soma = 0;
+        for (int j = 0; j < qntdDisciplinas; j++) {
+            do {
+                cout << "  Disciplina " << j + 1 << " (0 a 10): ";
+                cin >> notas[i][j];
+                
+            } while (notas[i][j] < 0 || notas[i][j] > 10); 
+            
+            soma += notas[i][j];
+        }
+        media[i] = soma / qntdDisciplinas;
+    }
 
-
-//saída de dados
-
-cout << "\nAlunos cadastrados: " << endl;
-for (int i = 0; i < qtdAlunos; i++){
-    cout << "  " << i +1 << ". " << nomes[i] << endl;
-
-}
-
+    cout << "\n==============================" << endl;
+    cout << "RELATÓRIO FINAL:" << endl;
+    for (int i = 0; i < qntdAlunos; i++) {
+        cout << i + 1 << ". " << nomes[i] << " - Média: " << media[i] << endl;
+    }
 
     return 0;
 }
