@@ -15,9 +15,32 @@ int main()
     float notas[20][5];
     float media[20];
     int qntdDisciplinas;
+    int opcaoInicial;
 
     cout << "=== SISTEMA DE NOTAS v4.0 ===" << endl;
+    cout << "1 - Novo Relatório" << endl;
+    cout << "2 - Ver Relatório " << endl;
+    cout << "Escolha uma opção: ";
+    cin >> opcaoInicial;
 
+    if (opcaoInicial == 2)
+    {
+        ifstream leitura("relatorio_notas.txt");
+        if (leitura.is_open())
+        {
+            string linha;
+            while (getline(leitura, linha))
+            {
+                cout << linha << endl;
+            }
+            leitura.close();
+        }
+        else
+        {
+            cout << "Nenhum relatório encontrado. Por favor, crie um novo relatório primeiro." << endl;
+            return 0;
+        }
+    }
     do
     {
         cout << "Quantidade de alunos (1 a 20): ";
@@ -110,13 +133,13 @@ int main()
             {
                 arquivo << "Reprovado" << endl;
             }
-        } 
+        }
 
         arquivo << "\nResumo:" << endl;
         arquivo << alunosAprovados << " alunos aprovados" << endl;
         arquivo << alunosRecuperacao << " alunos em recuperação" << endl;
         arquivo << alunosReprovados << " alunos reprovados" << endl;
-        
+
         arquivo.close();
         cout << "Relatório salvo em 'relatorio_notas.txt'" << endl;
     }
@@ -124,6 +147,6 @@ int main()
     {
         cout << "Erro ao criar o arquivo" << endl;
     }
-    
+
     return 0;
 }
