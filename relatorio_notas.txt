@@ -1,0 +1,12 @@
+=== RELATÓRIO ===
+Emanuelli -  Média: 10
+Aprovado
+vitin -  Média: 8.34
+Aprovado
+rafao -  Média: 7.8
+Reprovado
+
+Resumo:
+2 alunos aprovados
+0 alunos em recuperação
+0 alunos reprovados
