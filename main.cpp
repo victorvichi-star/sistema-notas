@@ -25,7 +25,7 @@ int main()
         cout << "1 - Novo Relatório" << endl;
         cout << "2 - Ver Relatório " << endl;
         cout << "3 - Sobre o sistema" << endl;
-        cout << "4 - Sair do sistema" << endl; // Nova opção adicionada
+        cout << "4 - Sair do sistema" << endl;
         cout << "Escolha uma opção: ";
         cin >> opcaoInicial;
 
@@ -186,7 +186,7 @@ int main()
             system("pause");
         }
 
-    } while (opcaoInicial != 4); // O loop continua enquanto a opção for diferente de 4
+    } while (opcaoInicial != 4);
 
     return 0;
 }
