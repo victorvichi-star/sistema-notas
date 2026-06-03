@@ -20,6 +20,7 @@ int main()
     cout << "=== SISTEMA DE NOTAS v4.0 ===" << endl;
     cout << "1 - Novo Relatório" << endl;
     cout << "2 - Ver Relatório " << endl;
+    cout << "3 - Sobre o sistema" << endl;
     cout << "Escolha uma opção: ";
     cin >> opcaoInicial;
 
@@ -41,6 +42,17 @@ int main()
             return 0;
         }
     }
+    else if (opcaoInicial == 3)
+        {
+            cout << "=== SOBRE ===" << endl;
+            cout << "Sistema de Notas v4.0 - Desenvolvido por Victor Vichi" << endl;
+            cout << "Este sistema permite criar relatórios de notas para até 20 alunos e 5 disciplinas." << endl;
+            cout << "As notas são salvas em um arquivo de texto para consulta futura." << endl;
+            cout << "Turma: LOPAL 2026 - SENAI-SP" << endl;
+            cout << "Versão: 4.0" << endl;
+
+            return 0;
+        }
     do
     {
         cout << "Quantidade de alunos (1 a 20): ";
@@ -80,6 +92,8 @@ int main()
         }
         media[i] = soma / qntdDisciplinas;
     }
+
+
 
     cout << "\n==============================" << endl;
     cout << "RELATÓRIO FINAL:" << endl;
